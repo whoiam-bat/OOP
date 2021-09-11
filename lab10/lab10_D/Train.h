@@ -33,5 +33,6 @@ public:
 	void sort(Train* arr, int N);
 	void search(Train* arr, int N, int searchNumber);
 	void sortingByDestination(Train* arr, int N);
+
 };
 void menu();
