@@ -8,46 +8,49 @@ private:
 	int imag;
 public:
 	Complex() : real(NULL), imag(NULL) {}
-	void setReal(int real1);
-	void setImag(int imag1);
-	int getReal();
-	int getImag();
-	int getSumTwoComplex(int real);
+	void setFirsComplex();
+	void getSumTwoComplex(int secondReal,int secondImage);
 };
 
 
 int main()
 {
-	Complex firstComplex,secondComplex;
-	int real1;
-	cout << "Enter real value of first complex number: ";
-	cin >> real1;
-	firstComplex.setReal(real1);
-	int imag1;
-	cout << "Enter imaginary value of first complex number: ";
-	cin >> imag1;
-	firstComplex.setImag(imag1);
-	cout << "z = ";
-	char signEquation = (firstComplex.getImag()) < 0 ? '-' :  '+';
-	cout << firstComplex.getReal()<<" "<< signEquation <<" "<< abs(firstComplex.getImag()) << "i;\n";
-
-
+	Complex complex;
+	int secondReal, secondImag;
+    complex.setFirsComplex();
+	cout << "Enter real part of Second complex number: ";
+	cin >> secondReal;
+	cout << "\nEnter imaginary part of Second complex number: ";
+	cin >> secondImag;
+	char signSecondEquation = (secondImag < 0 ? '-' :  '+');
+	cout << "\nz2 = " << secondReal << " " << signSecondEquation << " " << abs(secondImag) << "i\n";
+	complex.getSumTwoComplex(secondReal, secondImag);
 
 	return 0;
 }
 
-void Complex::setReal(int real){
-	this->real = real;
+
+void Complex::setFirsComplex() {
+	cout << "Enter real part of First complex number: ";
+	cin >> real;
+	cout << "\nEnter imaginary part of First complex number: ";
+	cin >> imag;
+	char signFirstEquation = (imag) < 0 ? '-' : '+';
+	cout << "z1 = " << real <<" "<< signFirstEquation<<" "<< abs(imag) << "i\n";
 }
 
-void Complex::setImag(int imag){
-	this->imag = imag;
-}
+void Complex::getSumTwoComplex(int secondReal, int secondImage) {
+	int Real;
+	int Imaginary;
+	Real = real + secondReal;
+	Imaginary = imag + secondImage;
+	char signComplex = (Imaginary < 0 ? '-' : '+');
+	if(abs(Imaginary) == 1) {
+		cout << "\nz = " << Real << " " << signComplex << " "<< "i\n";
+	}
+	else {
+		cout << "\nz = " << Real << " " << signComplex << " " <<abs(Imaginary)<< "i\n";
+	}
+	
 
-int Complex::getReal(){
-	return real;
-}
-
-int Complex::getImag(){
-	return imag;
 }
