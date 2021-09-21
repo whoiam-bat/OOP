@@ -51,6 +51,4 @@ void Complex::getSumTwoComplex(int secondReal, int secondImage) {
 	else {
 		cout << "\nz = " << Real << " " << signComplex << " " <<abs(Imaginary)<< "i\n";
 	}
-	
-
 }
