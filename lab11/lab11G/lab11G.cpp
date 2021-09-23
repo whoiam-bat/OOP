@@ -11,10 +11,10 @@ public:
     string names[7] = { "Zhorik" , "Richard", "Ahmed", "Tolik","Barsik","Bella","Maksim" };
     Dog();
     string getName();
-    void setName(string name);
-    void setWeight(int weight);
+    void setName(string& name);
+    void setWeight(int& weight);
     int getWeight();
-    void setAge(int age);
+    void setAge(int& age);
     int getAge();
 };
 class Master {
@@ -38,13 +38,13 @@ public:
     Master();
     void inputCountDogs();
     int getCountDogs();
-    void setNameMaster(string name);
+    void setNameMaster(string& name);
     string getNameMaster();
     int getID();
 
-    void setWeightDog(int indexDog, int weight);
-    void setAgeDog(int indexDog, int age);
-    void setNameDog(int indexDog, string name);
+    void setWeightDog(int& indexDog, int& weight);
+    void setAgeDog(int& indexDog, int& age);
+    void setNameDog(int& indexDog, string& name);
     void printMastersList();
     void printDogs();
 };
@@ -157,11 +157,11 @@ string Dog::getName()
 {
     return name;
 }
-void Dog::setName(string name)
+void Dog::setName(string& name)
 {
     this->name = name;
 }
-void Dog::setWeight(int weight)
+void Dog::setWeight(int& weight)
 {
     this->weight = weight;
 }
@@ -169,7 +169,7 @@ int Dog::getWeight()
 {
     return weight;
 }
-void Dog::setAge(int age)
+void Dog::setAge(int& age)
 {
     this->age = age;
 }
@@ -192,7 +192,7 @@ int Master::getCountDogs()
 {
     return amountDogs;
 }
-void Master::setNameMaster(string name) {
+void Master::setNameMaster(string& name) {
     this->name = name;
 }
 string Master::getNameMaster()
@@ -203,15 +203,15 @@ int Master::getID()
 {
     return id;
 }
-void Master::setWeightDog(int indexDog, int weight)
+void Master::setWeightDog(int& indexDog, int& weight)
 {
     dogs[indexDog - 1].setWeight(weight);
 }
-void Master::setAgeDog(int indexDog, int age)
+void Master::setAgeDog(int& indexDog, int& age)
 {
     dogs[indexDog - 1].setAge(age);
 }
-void Master::setNameDog(int indexDog, string name)
+void Master::setNameDog(int& indexDog, string& name)
 {
     dogs[indexDog - 1].setName(name);
 }
