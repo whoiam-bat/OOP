@@ -1,4 +1,5 @@
 ﻿#include "Master.h"
+
 int main()
 {
     srand(time(NULL));
@@ -93,4 +94,3 @@ int main()
     delete[] master;
     return 0;
 }
-

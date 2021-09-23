@@ -3,6 +3,22 @@
 #include<time.h>
 using namespace std;
 
+class Dog {
+private:
+    string name;
+    int weight;
+    int age;
+public:
+    string names[7] = { "Zhorik" , "Richard", "Ahmed", "Tolik","Barsik","Bella","Maksim" };
+    Dog();
+    string getName();
+    void setName(string& name);
+    void setWeight(int& weight);
+    int getWeight();
+    void setAge(int& age);
+    int getAge();
+};
+
 class Master {
 private:
     string name;
@@ -33,26 +49,9 @@ public:
     void printMastersList();
     void printDogs();
     ~Master() {
-        cout<<"Destructor"
+        cout << "Destructor";
         delete[] dogs;
     }
 };
 
-
-class Dog {
-private:
-    string name;
-    int weight;
-    int age;
-public:
-    string names[7] = { "Zhorik" , "Richard", "Ahmed", "Tolik","Barsik","Bella","Maksim" };
-    Dog();
-    string getName();
-    void setName(string& name);
-    void setWeight(int& weight);
-    int getWeight();
-    void setAge(int& age);
-    int getAge();
-};
 void menu();
-
