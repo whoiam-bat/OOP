@@ -90,6 +90,7 @@ int main()
         }
         }
     }
+    delete[] master;
     return 0;
 }
 

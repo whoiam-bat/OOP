@@ -27,12 +27,15 @@ public:
     void setNameMaster(string& name);
     string getNameMaster();
     int getID();
-
     void setWeightDog(int& indexDog, int& weight);
     void setAgeDog(int& indexDog, int& age);
     void setNameDog(int& indexDog, string& name);
     void printMastersList();
     void printDogs();
+    ~Master() {
+        cout<<"Destructor"
+        delete[] dogs;
+    }
 };
 
 
