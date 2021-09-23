@@ -1,4 +1,5 @@
 #include "Master.h"
+
 int Master::count = 0;
 
 Dog::Dog() {
