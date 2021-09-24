@@ -26,3 +26,5 @@ public:
 	static void Difference(Set setObj1, Set setObj2);
 	static void SymmetricDifference(Set setObj1, Set setObj2);
 };
+
+void menu();
