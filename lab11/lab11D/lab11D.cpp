@@ -95,9 +95,6 @@ public:
 	static void Intersection(Set setObj1, Set setObj2);
 	static void Difference(Set setObj1, Set setObj2);
 	static void SymmetricDifference(Set setObj1, Set setObj2);
-	/*~Set() {
-		delete[] set;
-	}*/
 };
 
 void menu() {
