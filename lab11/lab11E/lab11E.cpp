@@ -173,7 +173,7 @@ int main()
             cout << "Angle between arrows object time1 is: " << angle << " degree\n\n";
             break;
         }
-        case 5: {
+        case 5, 7: {
             system("cls");
             menu();
             break;
@@ -181,11 +181,6 @@ int main()
         case 6: {
             system("cls");
             exit(0);
-            break;
-        }
-        case 7: {
-            system("cls");
-            menu();
             break;
         }
         }
