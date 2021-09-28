@@ -1,4 +1,5 @@
-#include "ListDetails.h"
+#include"ListDetails.h"
+
 
 void ListDetails::getHeader() {
 	for (int i = 0; i < 100; i++) {
