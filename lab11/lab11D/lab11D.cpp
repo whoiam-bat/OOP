@@ -1,7 +1,5 @@
 ﻿#include "Set.h"
 
-
-
 int main() {
 	while (true) {
 		int choice;
