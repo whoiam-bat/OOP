@@ -106,3 +106,4 @@ void menu() {
 	cout << "5 operarion on sets;\n";
 	cout << "6 clear console;\n";
 	cout << "7 exit from the loop.\n";
+}
