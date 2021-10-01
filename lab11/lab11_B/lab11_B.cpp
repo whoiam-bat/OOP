@@ -13,6 +13,7 @@ int main()
         case 1: {
             cout << "\nEnter radius: ";
             cin >> a;
+            system("cls");
             Figure object1(a);
             cout << "\n";
             break;
@@ -22,11 +23,14 @@ int main()
             cin >> a;
             cout << "\nEnter height: ";
             cin >> h;
+            system("cls");
+
             Figure object2(a, h);
             cout << "\n";
             break;
         }
         }
     }
+    system("pause");
     return 0;
 }
