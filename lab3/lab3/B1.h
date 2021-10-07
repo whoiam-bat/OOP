@@ -7,6 +7,7 @@ void menu() {
     cout << "2.exit.\n";
 }
 
+
 class B1 {
 private:
     int a;
