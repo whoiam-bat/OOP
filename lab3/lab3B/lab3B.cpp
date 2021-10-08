@@ -2,7 +2,6 @@
 
 int main() {
 	int sizeLibrary;
-	
 	cout << "Enter size of library: ";
 	cin >> sizeLibrary;
 	Library* library = new Library[sizeLibrary];
