@@ -25,6 +25,9 @@ int main() {
 	cout << "\nElements ehich divide on 5 with balance 2 and 7 with 3 balance: " << "\n";
 	Child2::printSameElements(parent, sizeParentArray);
 
+
+	delete[] child1;
+	delete[] child2;
 	return 0;
 }
 

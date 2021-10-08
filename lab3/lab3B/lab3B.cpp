@@ -76,6 +76,7 @@ int main() {
 		}
 		}
 	}
+	delete[] library;
 	return 0;
 }
 
