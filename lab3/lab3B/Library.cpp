@@ -1,6 +1,5 @@
 #include "Library.h"
-
-inline void getHeader() {
+void getHeader() {
 	for (int i = 0; i < 100; i++) {
 		cout << "-";
 	}
@@ -38,7 +37,7 @@ inline void getHeader() {
 	}
 	cout << "\n";
 }
-inline void menu() {
+void menu() {
 	cout << "1. Create library by keyboard;\n";
 	cout << "2. Create random library;\n";
 	cout << "3. Check is this book exist in library;\n";

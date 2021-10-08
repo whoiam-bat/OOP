@@ -7,8 +7,8 @@ using namespace std;
 enum exist {
 	FALSE, TRUE
 };
-inline void getHeader();
-inline void menu();
+void getHeader();
+void menu();
 
 class Book {
 private:
