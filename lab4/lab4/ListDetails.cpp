@@ -5,28 +5,28 @@ void ListDetails::getHeader() {
 	for (int i = 0; i < 100; i++) {
 		cout << "-";
 	}
-	cout << "\n|Ведомость деталей";
-	for (int i = 0; i < 81; i++) {
+	cout << "\n|List of details";
+	for (int i = 0; i < 83; i++) {
 		cout << " ";
 	}
 	cout << "|\n";
 	for (int i = 0; i < 100; i++) {
 		cout << "-";
 	}
-	cout << "\n|Наименование";
+	cout << "\n|Name";
+	for (int i = 0; i < 23; i++) {
+		cout << " ";
+	}
+	cout << "|Type";
+	for (int i = 0; i < 9; i++) {
+		cout << " ";
+	}
+	cout << "|Quantity";
+	for (int i = 0; i < 12; i++) {
+		cout << " ";
+	}
+	cout << "|Weight of 1 part (g)";
 	for (int i = 0; i < 15; i++) {
-		cout << " ";
-	}
-	cout << "|Тип";
-	for (int i = 0; i < 10; i++) {
-		cout << " ";
-	}
-	cout << "|Количество";
-	for (int i = 0; i < 10; i++) {
-		cout << " ";
-	}
-	cout << "|Вес 1 детали (г)";
-	for (int i = 0; i < 19; i++) {
 		cout << " ";
 	}
 	cout << "|\n";
@@ -36,8 +36,8 @@ void ListDetails::getHeader() {
 	cout << "\n";
 }
 void ListDetails::getFooter() {
-	cout << "\n|Примечание: принято такое кодирование типов: О - оригинальная, П - покупная, З - заимствованная";
-	for (int i = 0; i < 3; i++) {
+	cout << "\n|Note: the following encoding types are accepted: O - original, P - purchased, B - borrowed";
+	for (int i = 0; i < 8; i++) {
 		cout << " ";
 	}
 	cout << "|\n";
@@ -53,13 +53,22 @@ void ListDetails::menu() {
 	cout << "4. to concatinate two objects;\n";
 	cout << "5. to find out length of name detail;\n";
 	cout << "6. to initialize varibles of ListDetails class;\n";
-	cout << "7. exit from loop.\n";
+	cout << "7. to add element;\n";
+	cout << "8. to remove element;\n";
+	cout << "9. to sort.\n";
+	cout << "10. exit from loop.\n";
 }
 ListDetails::ListDetails() {
 	this->name = details[rand() % 20];
 	this->type = dType[rand() % 3];
 	this->amount = rand() % ((30 - 1 + 1) + 1);
 	this->weight = rand() % ((1000 - 1 + 1) + 1);
+}
+ListDetails::ListDetails(string name, char type, int amount, int weight) {
+	this->name = name;
+	this->type = type;
+	this->amount = amount;
+	this->weight = weight;
 }
 void ListDetails::setName(const string& name) {
 	this->name = name;
@@ -85,8 +94,6 @@ int ListDetails::getAmount() {
 int ListDetails::getWeight() {
 	return weight;
 }
-
-
 
 int ListDetails::operator[](int index) {
 	return name.length();
@@ -131,7 +138,69 @@ ostream& operator << (ostream& out, const ListDetails& detail) {
 	return out;
 }
 
-void ListDetails::printList(ListDetails* detail, const int& size) {
+void ListDetails::addElement(ListDetails*& detail, int& sizeList) {
+	string name;
+	char type;
+	int amount, weight;
+	sizeList += 1;
+
+	cout << "Enter name detail: ";
+	getline(cin, name);
+	cout << "Enter type detail: ";
+	cin >> type;
+
+	cout << "Enter amount details: ";
+	cin >> amount;
+	cin.ignore();
+
+	cout << "Enter weight one detail: ";
+	cin >> weight;
+	cin.ignore();
+
+	ListDetails* newList = new ListDetails[sizeList];
+
+	for (int i = 0; i < sizeList - 1; i++) {
+		newList[i] = detail[i];
+	}
+	newList[sizeList - 1] = ListDetails(name, type, amount, weight);
+
+	delete[] detail;
+
+	detail = new ListDetails[sizeList];
+
+	for (int i = 0; i < sizeList; i++) {
+		detail[i] = newList[i];
+	}
+
+}
+
+void ListDetails::eraseElement(ListDetails*& detail, int& sizeList) {
+	sizeList -= 1;
+	ListDetails* newList = new ListDetails[sizeList];
+	for (int i = 0; i < sizeList; i++) {
+		newList[i] = detail[i];
+	}
+	delete[] detail;
+
+	detail = new ListDetails[sizeList];
+
+	for (int i = 0; i < sizeList; i++) {
+		detail[i] = newList[i];
+	}
+	delete[] newList;
+}
+
+void ListDetails::sorting(ListDetails* detail, const int& sizeList) {
+	for (int i = sizeList - 1; i > 1; i--) {
+		for (int j = 0; j < i; j++) {
+			if (detail[j].name > detail[j + 1].name) {
+				swap(detail[j], detail[j + 1]);
+			}
+		}
+	}
+}
+
+void ListDetails::printList(ListDetails* detail,const int& size) {
 	for (int i = 0; i < size; i++) {
 		cout << detail[i];
 		for (int i = 0; i < 100; i++) {
