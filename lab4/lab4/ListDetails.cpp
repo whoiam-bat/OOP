@@ -173,7 +173,6 @@ void ListDetails::addElement(ListDetails*& detail, int& sizeList) {
 	}
 
 }
-
 void ListDetails::eraseElement(ListDetails*& detail, int& sizeList) {
 	sizeList -= 1;
 	ListDetails* newList = new ListDetails[sizeList];
@@ -189,7 +188,6 @@ void ListDetails::eraseElement(ListDetails*& detail, int& sizeList) {
 	}
 	delete[] newList;
 }
-
 void ListDetails::sorting(ListDetails* detail, const int& sizeList) {
 	for (int i = sizeList - 1; i > 1; i--) {
 		for (int j = 0; j < i; j++) {
@@ -199,7 +197,6 @@ void ListDetails::sorting(ListDetails* detail, const int& sizeList) {
 		}
 	}
 }
-
 void ListDetails::printList(ListDetails* detail,const int& size) {
 	for (int i = 0; i < size; i++) {
 		cout << detail[i];
