@@ -47,12 +47,18 @@ private:
 public:
 	DataBase();
 	DataBase(string name, char type, int amount, int weight);
+	~DataBase() {
+		delete[] detail;
+	}
 	void addElement();
 	void eraseElement();
-	void sorting();
+	void sorting(DataBase& ob);
 	void getHeader();
 	void getFooter();
-	void printList();
+	void printList(DataBase& ob);
 	void menu();
+	int getSizeDB() {
+		return sizeDB;
+	}
 	friend ostream& operator << (ostream& out, DataBase& ob);
 };

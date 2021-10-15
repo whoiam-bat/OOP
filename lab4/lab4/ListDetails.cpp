@@ -81,11 +81,6 @@ ostream& operator << (ostream& out, const ListDetails& detail) {
 	return out;
 }
 
-
-
-
-
-
 void DataBase::getHeader() {
 	for (int i = 0; i < 100; i++) {
 		cout << "-";
@@ -198,18 +193,18 @@ void DataBase::eraseElement() {
 	}
 	delete[] newList;
 }
-void DataBase::sorting() {
+void DataBase::sorting(DataBase& ob) {
 	for (int i = sizeDB - 1; i > 1; i--) {
 		for (int j = 0; j < i; j++) {
-			if (detail[j].getName() > detail[j + 1].getName()) {
+			if (ob.detail[j].getName() > ob.detail[j + 1].getName()) {
 				swap(detail[j], detail[j + 1]);
 			}
 		}
 	}
 }
-void DataBase::printList() {
+void DataBase::printList(DataBase& ob) {
 	for (int i = 0; i < sizeDB; i++) {
-		cout << detail[i];
+		cout << ob.detail[i];
 		for (int i = 0; i < 100; i++) {
 			cout << "-";
 		}
@@ -226,9 +221,5 @@ ostream& operator << (ostream& out, DataBase& ob) {
 	for (int i = 0; i < ob.sizeDB; i++) {
 		out << ob.detail[i];
 	}
-	/*out << left << "|" << setw(27) << detail.name
-		<< left << "|" << setw(13) << detail.type
-		<< left << "|" << setw(20) << detail.amount
-		<< left << "|" << setw(35) << detail.weight << "|\n";*/
 	return out;
 }

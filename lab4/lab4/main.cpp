@@ -1,17 +1,15 @@
 #include "ListDetails.h"
 
-
+int DataBase::sizeDB = 7;
 
 int main() {
 	srand(time(NULL));
 
-	int sizeList;
-	cout << "Enter size of list details: ";
-	cin >> sizeList;
-	DataBase temp;
+	DataBase* temp = new DataBase();
+	const int sizeList = temp->getSizeDB();
 	DataBase* detail = new DataBase[sizeList];
 	system("cls");
-	temp.menu();
+	temp->menu();
 
 	for (;;) {
 		int choice;
@@ -19,9 +17,9 @@ int main() {
 		cin.ignore();
 		switch (choice) {
 		case 1: {
-			temp.getHeader();
-			temp.printList();
-			temp.getFooter();
+			temp->getHeader();
+			temp->printList(*temp);
+			temp->getFooter();
 			break;
 		}
 		case 2: {
@@ -89,7 +87,6 @@ int main() {
 			cout << tempDetail << "\n";
 			break;
 		}
-		
 		case 5: {
 			string name;
 			char type;
@@ -115,17 +112,17 @@ int main() {
 			break;
 		}
 		case 6: {
-			temp.addElement();
+			temp->addElement();
 			cout << "Element has been added.\n";
 			break;
 		}
 		case 7: {
-			temp.eraseElement();
+			temp->eraseElement();
 			cout << "Element has been erased.\n";
 			break;
 		}
 		case 8: {
-			temp.sorting();
+			temp->sorting(*temp);
 			cout << "List has been sorted.\n";
 			break;
 		}
