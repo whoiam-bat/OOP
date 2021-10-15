@@ -39,7 +39,9 @@ public:
 	static void addElement(ListDetails*& detail, int& sizeList);
 	static void eraseElement(ListDetails*& detail, int& sizeList);
 	static void sorting(ListDetails* detail, const int& sizeList);
+
 	static void printList(ListDetails* detail, const int& size);
+
 	static void getHeader();
 	static void getFooter();
 	static void menu();
