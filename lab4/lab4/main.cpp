@@ -1,23 +1,27 @@
 #include "ListDetails.h"
 
+
+
 int main() {
 	srand(time(NULL));
 
 	int sizeList;
 	cout << "Enter size of list details: ";
 	cin >> sizeList;
-	ListDetails* detail = new ListDetails[sizeList];
+	DataBase temp;
+	DataBase* detail = new DataBase[sizeList];
 	system("cls");
-	ListDetails::menu();
+	temp.menu();
+
 	for (;;) {
 		int choice;
 		cin >> choice;
 		cin.ignore();
 		switch (choice) {
 		case 1: {
-			ListDetails::getHeader();
-			ListDetails::printList(detail, sizeList);
-			ListDetails::getFooter();
+			temp.getHeader();
+			temp.printList();
+			temp.getFooter();
 			break;
 		}
 		case 2: {
@@ -85,21 +89,8 @@ int main() {
 			cout << tempDetail << "\n";
 			break;
 		}
+		
 		case 5: {
-		f7:
-			int indexFirstDetail;
-			cout << "Enter index to find out length name of detail: ";
-			cin >> indexFirstDetail;
-			int sizeNameDetail;
-			if (indexFirstDetail - 1 > sizeList - 1) {
-				cout << "Value is out of the border List details;\nTry again\n";
-				goto f7;
-			}
-			sizeNameDetail = detail[indexFirstDetail - 1][indexFirstDetail - 1]; //(detail[indexFirstDetail - 1]).operator[](indexFirstDetail - 1);
-			cout << detail[indexFirstDetail - 1].getName() << " has size: " << sizeNameDetail << "\n";
-			break;
-		}
-		case 6: {
 			string name;
 			char type;
 			int amount;
@@ -123,22 +114,22 @@ int main() {
 			detail[indexFirstDetail - 1](name, type, amount, weight);
 			break;
 		}
-		case 7: {
-			ListDetails::addElement(detail, sizeList);
+		case 6: {
+			temp.addElement();
 			cout << "Element has been added.\n";
 			break;
 		}
-		case 8: {
-			ListDetails::eraseElement(detail, sizeList);
+		case 7: {
+			temp.eraseElement();
 			cout << "Element has been erased.\n";
 			break;
 		}
-		case 9: {
-			ListDetails::sorting(detail, sizeList);
+		case 8: {
+			temp.sorting();
 			cout << "List has been sorted.\n";
 			break;
 		}
-		case 10: {
+		case 9: {
 			system("cls");
 			exit(0);
 			break;

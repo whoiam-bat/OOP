@@ -29,20 +29,30 @@ public:
 	int getAmount();
 	int getWeight();
 
-	int operator [](int index);
 	ListDetails operator ()(const string& name, const char& type, const int& amount, const int& weight);
 	ListDetails operator =(const ListDetails& detail);
 	friend string operator == (const ListDetails& detail1, const ListDetails& detail2);
 	friend string operator +(const ListDetails& detail1, const ListDetails& detail2);
 	friend ostream& operator << (ostream& out, const ListDetails& detail);
 
-	static void addElement(ListDetails*& detail, int& sizeList);
-	static void eraseElement(ListDetails*& detail, int& sizeList);
-	static void sorting(ListDetails* detail, const int& sizeList);
+	
+};
 
-	static void printList(ListDetails* detail, const int& size);
 
-	static void getHeader();
-	static void getFooter();
-	static void menu();
+class DataBase : public ListDetails{
+private:
+	ListDetails* detail;
+	static int sizeDB;
+
+public:
+	DataBase();
+	DataBase(string name, char type, int amount, int weight);
+	void addElement();
+	void eraseElement();
+	void sorting();
+	void getHeader();
+	void getFooter();
+	void printList();
+	void menu();
+	friend ostream& operator << (ostream& out, DataBase& ob);
 };
