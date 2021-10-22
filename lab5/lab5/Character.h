@@ -9,5 +9,6 @@ public:
 	void printLatters();
 	void printLattersDigits();
 	void printAllSystemCharacters();
+	void printPunctuationMarks();
 	static void menu();
 };

@@ -30,11 +30,16 @@ int main(void) {
 			break;
 		}
 		case 5: {
+			temp.printPunctuationMarks();
+			cout << "\n\n";
+			break;
+		}
+		case 6: {
 			system("cls");
 			Character::menu();
 			break;
 		}
-		case 6: {
+		case 7: {
 			exit(0);
 			break;
 		}

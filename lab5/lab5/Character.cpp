@@ -26,11 +26,23 @@ void Character::printAllSystemCharacters() {
 	}
 }
 
+void Character::printPunctuationMarks() {
+	for (int i = 0; i <= 255; i++) {
+		if (ispunct(static_cast<char>(i))) {
+			cout << static_cast<char> (i) << " ";
+		}
+		else {
+			continue;
+		}
+	}
+}
+
 void Character::menu() {
 	cout << "1. to get english letters in lower case;\n";
 	cout << "2. to get all english letters;\n";
 	cout << "3. to get letters and digits;\n";
 	cout << "4. to get all charachters in this PC;\n";
-	cout << "5. to clear console;\n";
-	cout << "6. exit from the cycle.\n";
+	cout << "5. to get punctuation signs;\n";
+	cout << "6. to clear console;\n";
+	cout << "7. exit from the cycle.\n";
 }
