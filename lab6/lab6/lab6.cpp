@@ -22,14 +22,23 @@ int main()
 			break;
 		}
 		case 2: {
-			addElement(detail,size);
+			Product::addElement(detail,size);
 			break;
 		}
 		case 3: {
-			sort(detail, size);
+			int index;
+			cout << "Enter index of element which you want to change: ";
+			cin >> index;
+			cin.ignore();
+
+			Product::changeElement(detail[index - 1], size);
 			break;
 		}
 		case 4: {
+			sort(detail, size);
+			break;
+		}
+		case 5: {
 			exit(0);
 			break;
 		}

@@ -32,29 +32,7 @@ int Product::getWeight() {
 	return weight;
 }
 
-ostream& operator<<(ostream& out, const Product& detail) {
-	out << left << "|" << setw(27) << detail.name
-		<< left << "|" << setw(13) << detail.id
-		<< left << "|" << setw(20) << detail.markSteel
-		<< left << "|" << setw(35) << detail.weight << "|\n";
-	return out;
-}
-void print(Product*& detail, const int& size) {
-	for (int i = 0; i < size; i++) {
-		cout << detail[i];
-		for (int i = 0; i < 100; i++) {
-			cout << "-";
-		}
-		if (i == size - 1) {
-			break;
-		}
-		else {
-			cout << "\n";
-		}
-	}
-	cout << "\n";
-}
-void addElement(Product*& detail, int& size) {
+void Product::addElement(Product*& detail, int& size) {
 	string name, markSteel;
 	int id;
 	int weight;
@@ -90,6 +68,52 @@ void addElement(Product*& detail, int& size) {
 	}
 	delete[] newList;
 }
+void Product::changeElement(Product& detail, const int& size) {
+	string name, markSteel;
+	int id;
+	int weight;
+	cout << "Enter new name detail: ";
+	getline(cin, name);
+
+	cout << "Enter new ID detail: ";
+	cin >> id;
+	cin.ignore();
+
+	cout << "Enter new mark steel details: ";
+	getline(cin, markSteel);
+
+	cout << "Enter new weight one detail: ";
+	cin >> weight;
+	cin.ignore();
+
+	detail.setName(name);
+	detail.setID(id);
+	detail.setMark(markSteel);
+	detail.setWeight(weight);
+}
+ostream& operator<<(ostream& out, const Product& detail) {
+	out << left << "|" << setw(27) << detail.name
+		<< left << "|" << setw(13) << detail.id
+		<< left << "|" << setw(20) << detail.markSteel
+		<< left << "|" << setw(35) << detail.weight << "|\n";
+	return out;
+}
+void print(Product*& detail, const int& size) {
+	for (int i = 0; i < size; i++) {
+		cout << detail[i];
+		for (int i = 0; i < 100; i++) {
+			cout << "-";
+		}
+		if (i == size - 1) {
+			break;
+		}
+		else {
+			cout << "\n";
+		}
+	}
+	cout << "\n";
+}
+
 void sort(Product*& detail, int& size) {
 	for (int i = size - 1; i > 0; i--) {
 		for (int i = 0; i < size - 1; i++) {
@@ -136,6 +160,7 @@ void getHeader() {
 void menu() {
 	cout << "1. to print list of details;\n";
 	cout << "2. to add element;\n";
-	cout << "3. to sort.\n";
-	cout << "4. exit from loop.\n";
+	cout << "3. to change element;\n";
+	cout << "4. to sort.\n";
+	cout << "5. exit from loop.\n";
 }

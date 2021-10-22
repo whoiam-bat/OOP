@@ -28,11 +28,12 @@ public:
     string getMark();
     int getWeight();
     friend ostream& operator <<(ostream& out, const Product& detail);
-
+    static void addElement(Product*& detail, int& size);
+    static void changeElement(Product& detail, const int& size);
 };
 
 
-void addElement(Product*& detail, int& size);
+
 void print(Product*& detail, const int& size);
 void sort(Product*& detail, int& size);
 
