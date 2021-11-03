@@ -1,8 +1,6 @@
 #include"ListDetails.h"
 
 
-
-
 ListDetails::ListDetails() {
 	this->name = details[rand() % 20];
 	this->type = dType[rand() % 3];
