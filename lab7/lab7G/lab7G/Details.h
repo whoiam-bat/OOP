@@ -18,10 +18,9 @@ private:
 public:
 	static int count;
 	string details[20] = { "Bolt","Flange","Frame","Adapter","Nail","Nut","Dowel","Spool","Coupling","Knife",
-						   "Screw","Bush","Seal","Nozzle","Hub","Puck","Grover","Pin","Pin","Clamp"
+							   "Screw","Bush","Seal","Nozzle","Hub","Puck","Grover","Pin","Pin","Clamp"
 	};
 	char dType[3] = { 'B','P','O' };
-
 	ListDetails();
 	int getCountElementsInFile();
 	void setName(const string& name);

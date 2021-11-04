@@ -8,7 +8,7 @@ int main() {
 	cout << "Enter size of list details: ";
 	cin >> sizeList;
 	ListDetails* detail = new ListDetails[sizeList];
-
+	
 	system("cls");
 	ListDetails::menu();
 	for (;;) {
