@@ -60,10 +60,9 @@ void Number::editBinaryFile(string path, Number*& arNumbers, int size) {
 }
 
 void menu() {
-	cout << "1. create array;\n";
-	cout << "2. fill binary file;\n";
-	cout << "3. read binary file;\n";
-	cout << "4. edit array;\n";
-	cout << "5. clear console;\n";
-	cout << "6. exit from loop.\n";
+	cout << "1. fill binary file;\n";
+	cout << "2. read binary file;\n";
+	cout << "3. edit array;\n";
+	cout << "4. clear console;\n";
+	cout << "5. exit from loop.\n";
 }

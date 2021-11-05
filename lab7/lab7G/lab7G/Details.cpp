@@ -1,6 +1,6 @@
 ﻿#include "Details.h"
 
-int ListDetails::count = 10;
+int ListDetails::count = 0;
 
 void ListDetails::getHeader() {
 	for (int i = 0; i < 100; i++) {
@@ -190,8 +190,8 @@ void ListDetails::readObjectFromFile(string& path) {
 
 	cout << iof.tellg() << "\n";
 
-	//iof >> temp.name >> temp.type >> temp.amount >> temp.weight;
-	iof.read((char*)&temp, sizeof(ListDetails));
+	iof >> temp.name >> temp.type >> temp.amount >> temp.weight;
+	//iof.read((char*)&temp, sizeof(ListDetails));
 
 	getHeader();
 	printList(&temp);

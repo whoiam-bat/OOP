@@ -7,9 +7,9 @@ int main() {
 	cout << "Enter size: ";
 	cin >> size;
 	Number* arNumbers = new Number[size];
-	int size;
 	menu();
 	while (true) {
+		cout << "\nMake your choice: \n";
 		int choice;
 		cin >> choice;
 		switch (choice) {
@@ -31,13 +31,15 @@ int main() {
 			break;
 		}
 		case 5: {
+			system("cls");
+			ofstream fout(path);
+			fout.close();
+			remove(path.c_str());
 			exit(0);
 			break;
 		}
 		}
 	}
-	ofstream fout(path);
-	fout.close();
 	return 0;
 }
 
