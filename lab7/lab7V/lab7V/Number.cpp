@@ -27,7 +27,7 @@ void Number::readFromBinaryFile(string path, Number* arNumbers, int size) {
 	cout << "\n";
 	fin.close();
 }
-void Number::editBinaryFile(string path, Number* arNumbers, int size) {
+void Number::editBinaryFile(string path, Number*& arNumbers, int size) {
 	fstream iof;
 	try {
 		iof.open(path, ios::binary | ios::in | ios::out);

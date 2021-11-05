@@ -10,7 +10,7 @@ private:
 public:
 	Number();
 	static void fillBinaryFile(string path, Number* arNumbers, int size);
-	static void editBinaryFile(string path, Number* arNumbers, int size);
+	static void editBinaryFile(string path, Number*& arNumbers, int size);
 	static void readFromBinaryFile(string path, Number* arNumbers, int size);
 };
 void menu();
