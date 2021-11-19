@@ -22,7 +22,7 @@ int main() {
 	cin >> length;
 	cin.ignore();
 
-	map<Name, Number, Name> abonent;
+	map<Name, Number> abonent;
 
 	for (int  i = 0; i < length; i++) {
 		abonent.insert(pair<Name, Number>(Name(names[rand() % 20]), Number(numbers[rand() % 20])));
