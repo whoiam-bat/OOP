@@ -4,6 +4,16 @@
 #include<ctime>
 #include<iomanip>
 
+string names[20] = { "Oliver Adams","Jack Bailey", "Harry Baker", "Jacob Carter", "Charlie Collins",
+						 "Thomas Davidson", "Oscar Davies", "William Fisher", "James Gibson", "George Ford",
+						 "Amelia Graham", "Olivia Griffiths", "Emily Armstrong", "Ava Clarke", "Jessica Elliot",
+						 "Isabella Johnson", "Sophie Lewis", "Mia Murphy", "Ruby Osborne", "Lily Ratliff" };
+
+string numbers[20] = { "442836451", "440595637", "441324326", "445674938", "448795465",
+						"448796587", "447821032", "440123256", "448797452", "441023587",
+						"447572637", "446532873", "446237436", "446523298", "447586263",
+						"445768762", "447683472", "441625379", "440959853", "446756834" };
+
 int main() {
 	srand(time(NULL));
 
@@ -12,17 +22,12 @@ int main() {
 	cin >> length;
 	cin.ignore();
 
-	Name* name = new Name[length];
-	Number* number = new Number[length];
+	map<Name, Number, Name> abonent;
 
-	map<string, string> abonent;
-
-	//Create map
-	for (int i = 0; i < length; i++) {
-		abonent.insert(pair<string, string> (name[i].getNameAt(), number[i].getNumberAt()));
+	for (int  i = 0; i < length; i++) {
+		abonent.insert(pair<Name, Number>(Name(names[rand() % 20]), Number(numbers[rand() % 20])));
 	}
 
-	//Print map
 	int i = 1;
 	for (const auto& it : abonent) {
 		cout <<i++<<" " << left << setw(20) << it.first
@@ -33,8 +38,9 @@ int main() {
 	string key;
 	cout << "\n\nEnter name to find abonent:\n";
 	getline(cin, key);
+
 	for (auto p = abonent.begin(); p != abonent.end(); p++) {
-		if (key == p->first) {
+		if (key == const_cast<Name&>(p->first).getNameAt()) {
 			cout << left << setw(20) << p->first
 				<< left << setw(15) << p->second << "\n";
 			break;
@@ -46,12 +52,11 @@ int main() {
 	cout << "Enter symbol to find all abonents with this starting letter:\n";
 	cin >> symbol;
 	for (const auto& p : abonent) {
-		if (symbol == p.first[0]) {
+		if (symbol == const_cast<Name&>(p.first).getNameAt()[0]) {
 			cout << left << setw(20) << p.first
 				<< left << setw(15) << p.second << "\n";
 		}
 	}
-
 
 	//Erase abonent
 	cout << "Enter symbol to erase all abonents with this starting letter:\n";
@@ -59,11 +64,12 @@ int main() {
 	for (auto p = abonent.begin(); p != abonent.end();) {
 		auto it = p;
 		p++;
-		if (symbol == it->first[0]) {
+		if (symbol == const_cast<Name&>(it->first).getNameAt()[0]) {
 			abonent.erase(it);
 		}
 	}	
-
+	
+	
 	i = 1;
 	for (const auto& it : abonent) {
 		cout << i++ << " " << left << setw(20) << it.first

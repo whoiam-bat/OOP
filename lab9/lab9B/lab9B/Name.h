@@ -8,11 +8,12 @@ class Name {
 private:
 	string name;
 public:
-	string names[20] = { "Oliver Adams","Jack Bailey", "Harry Baker", "Jacob Carter", "Charlie Collins",
-						 "Thomas Davidson", "Oscar Davies", "William Fisher", "James Gibson", "George Ford",
-						 "Amelia Graham", "Olivia Griffiths", "Emily Armstrong", "Ava Clarke", "Jessica Elliot",
-						 "Isabella Johnson", "Sophie Lewis", "Mia Murphy", "Ruby Osborne", "Lily Ratliff" };
-	Name();
+	
+	Name(string name = "");
 	string getNameAt();
+
+	friend bool operator <(const Name& name1, const Name& name2);
+
+	friend ostream& operator << (ostream& out, Name name);
 };
 
